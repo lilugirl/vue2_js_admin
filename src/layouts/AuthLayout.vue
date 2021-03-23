@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import LocaleChange from '../components/LocaleChange'
+  import LocaleChange from '../components/LocaleChange.vue'
 export default {
   components:{
       LocaleChange
