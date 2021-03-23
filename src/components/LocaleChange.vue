@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <span>
     {{ $t("message.changeLang") }}
-    <select v-model="$i18n.locale" @change="onSelect">
-      <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang.value">{{ lang.label }}</option>
-    </select>
-  </div>
+    <a-select :default-value="$i18n.locale" @change="onSelect" style="width:100px">
+      <a-select-option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang.value">{{ lang.label }}</a-select-option>
+    </a-select>
+  </span>
 </template>
 
 <script>
@@ -17,13 +17,13 @@ export default {
         langs:LANGS
     }
   },
-  mounted(){
-     
-  },
+
   methods:{
       ...mapMutations(['SET_LANG']),
-      onSelect(e){
-          this.SET_LANG(e.target.value);
+      onSelect(value){
+          console.log('on select value',value);
+          this.$i18n.locale=value;
+          this.SET_LANG(value);
       }
   }
 }

@@ -8,7 +8,7 @@ import VueI18n from "vue-i18n";
 import I18nMessages from "./locale";
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
-import { DEFAULT_LANG } from './type/constants';
+import { DEFAULT_LANG, LANG } from './type/constants';
 
 Vue.config.productionTip = false;
 Vue.prototype.$http=axios;
@@ -17,7 +17,7 @@ Vue.use(Antd);
 
 // init VueI18n
 const i18n=new VueI18n({
-  locale: window.localStorage.getItem('lang')?window.localStorage.getItem('lang'):DEFAULT_LANG,
+  locale: window.localStorage.getItem(LANG)?window.localStorage.getItem(LANG):DEFAULT_LANG,
   messages:I18nMessages
 });
 

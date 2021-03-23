@@ -4,3 +4,32 @@
     height:100vh;
     width:100vw;
 }
+
+.flex-1{
+    flex:1
+}
+.flex-2{
+    flex:2
+}
+
+.flex-3{
+    flex:3
+}
+
+.right{
+    text-align: right;
+}
+
+// overwrite
+.ant-menu-dark{
+    .ant-menu-item-selected{
+        a{
+            color:#fff !important;
+        }
+    }
+    .ant-menu-item{
+        a{
+            color:#fff !important;
+        }
+    }
+}
