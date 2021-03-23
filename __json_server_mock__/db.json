@@ -3,12 +3,14 @@
         {
             "id":1,
             "username":"liuyi",
-            "password":"111111"
+            "password":"111111",
+            "token":"aaaa"
         },
         {
             "id":2,
             "username":"xiaoli",
-            "password":"111111"
+            "password":"111111",
+            "token":"bbb"
         }
     ]
 }

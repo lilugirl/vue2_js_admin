@@ -4,13 +4,14 @@ import router from './router'
 import store from './store'
 import VueI18n from "vue-i18n";
 import I18nMessages from "./locale";
+import { DEFAULT_LANG } from './type/constants';
 
 Vue.config.productionTip = false
 Vue.use(VueI18n);
 
-// seting VueI18n
+// init VueI18n
 const i18n=new VueI18n({
-  locale: 'en',
+  locale: window.localStorage.getItem('lang')?window.localStorage.getItem('lang'):DEFAULT_LANG,
   messages:I18nMessages
 });
 
