@@ -1,8 +1,9 @@
-import { DEFAULT_LANG, DEFAULT_NAME, DEFAULT_TOKEN, LANG, NAME, TOKEN } from "../../type/constants";
+import { DEFAULT_LANG, DEFAULT_NAME, DEFAULT_ROLE, DEFAULT_TOKEN, LANG, NAME, ROLE, TOKEN } from "../../type/constants";
 
 const user={
     state:{
        name:window.localStorage.getItem(NAME)?window.localStorage.getItem(NAME):DEFAULT_NAME,
+       role:window.localStorage.getItem(ROLE)?window.localStorage.getItem(ROLE):DEFAULT_ROLE,
        token:window.localStorage.getItem(TOKEN)?window.localStorage.getItem(TOKEN):DEFAULT_TOKEN,
        lang:window.localStorage.getItem(LANG)?window.localStorage.getItem(LANG):DEFAULT_LANG
     },
@@ -15,6 +16,10 @@ const user={
           state.token=payload;
           window.localStorage.setItem(TOKEN,payload);
       },
+      SET_ROLE(state,payload){
+          state.role=payload;
+          window.localStorage.setItem(ROLE,payload)
+      },
       SET_NAME(state,payload){
           state.name=payload;
           window.localStorage.setItem(NAME,payload);
@@ -26,6 +31,7 @@ const user={
             if(payload.username==='admin' && payload.password==='admin'){
                 commit('SET_TOKEN',payload.token);
                 commit('SET_NAME',payload.username);
+                commit('SET_ROLE','Admin')
                 resolve()
                }else{
                   reject('username or password error')

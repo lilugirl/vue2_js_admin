@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import AdminLayout from '../layouts/AdminLayout.vue'
 import AuthLayout from '../layouts/AuthLayout.vue'
 import Login from '../views/auth/Login.vue'
+import Home from '../views/admin/home/Index.vue'
 import User from '../views/admin/user/Index.vue'
 
 Vue.use(VueRouter)
@@ -13,17 +14,22 @@ const routes = [
     path: '/',
     name: 'Home',
     meta:{needLogin:true},
-    redirect:'/user',
+    redirect:'/home',
     component: AdminLayout,
     children:[{
+      path:'home',
+      name:'Home',
+      meta:{roles:['Admin','Marketing','CustomerService']},
+      component:Home
+    },{
       path:'user',
       name:'User',
-      meta:{needLogin:true},
+      meta:{roles:['Admin','Marketing','CustomerService']},
       component:User
     },{
       path:'product',
       name:'Product',
-      meta:{needLogin:true},
+      meta:{roles:['Admin']},
       component:()=>import(/* webpackChunkName: "product" */ '../views/admin/product/Index.vue')
     }]
   },

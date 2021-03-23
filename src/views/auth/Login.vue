@@ -25,7 +25,7 @@ export default {
       onLogin(){
         this.login({username:this.username,password:this.password,token:'faketoken'}).then(()=>{
             alert('login successfully');
-            window.location.href="/"
+            this.$router.push('/');
         }).catch(error=>alert(error))
       }
   }
