@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>{{ $t("message.hello") }} <span><locale-change></locale-change></span> <button @click="logout">{{ $t("message.logout") }}</button></header>
+    <header>{{$store.state.user.name}} {{ $t("message.hello") }} <span><locale-change></locale-change></span> <button @click="logout">{{ $t("message.logout") }}</button></header>
     <aside> <div id="nav">
       <ul>
         <li>
@@ -29,6 +29,9 @@ export default {
   components:{
     LocaleChange
     
+  },
+  mounted(){
+    console.log('this.$store',this.$store)
   },
   methods:{
     logout(){
