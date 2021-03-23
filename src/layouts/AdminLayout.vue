@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="layout_admin">
     <header>{{$store.state.user.name}} {{ $t("message.hello") }} <span><locale-change></locale-change></span> <button @click="onLogout">{{ $t("message.logout") }}</button></header>
     <aside> <div id="nav">
       <ul>
@@ -25,6 +25,7 @@
 <script>
 import {mapActions} from 'vuex';
 import LocaleChange from '../components/LocaleChange.vue';
+import './AdminLayout.scss';
 export default {
   components:{
     LocaleChange
@@ -45,6 +46,3 @@ export default {
 }
 </script>
 
-<style>
-
-</style>

@@ -1,19 +1,13 @@
 <template>
-  <div>
-    <locale-change></locale-change>
-    <router-view/>
+  <div id="layout_auth">
+    <router-view />
   </div>
 </template>
 
 <script>
-  import LocaleChange from '../components/LocaleChange.vue'
+import "./AuthLayout.scss";
 export default {
-  components:{
-      LocaleChange
-  }
-}
+ 
+};
 </script>
 
-<style>
-
-</style>
