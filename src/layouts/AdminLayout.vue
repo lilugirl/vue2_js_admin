@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>Welcome to dashboard  <button @click="logout">登出</button></header>
+    <header>{{ $t("message.hello") }} <span><locale-change></locale-change></span> <button @click="logout">{{ $t("message.logout") }}</button></header>
     <aside> <div id="nav">
       <ul>
         <li>
@@ -23,7 +23,13 @@
 </template>
 
 <script>
+
+import LocaleChange from '../components/LocaleChange.vue';
 export default {
+  components:{
+    LocaleChange
+    
+  },
   methods:{
     logout(){
       this.$router.push('/auth/login');
