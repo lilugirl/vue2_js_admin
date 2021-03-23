@@ -1,5 +1,5 @@
 import { DEFAULT_LANG, DEFAULT_NAME, DEFAULT_ROLE, DEFAULT_TOKEN, LANG, NAME, ROLE, TOKEN } from "../../type/constants";
-
+import {Login} from '../../api/user';
 const user={
     state:{
        name:window.localStorage.getItem(NAME)?window.localStorage.getItem(NAME):DEFAULT_NAME,
@@ -28,14 +28,26 @@ const user={
     actions:{
        login({ commit },payload){
           return new Promise((resolve,reject)=>{
-            if(payload.username==='admin' && payload.password==='admin'){
-                commit('SET_TOKEN',payload.token);
-                commit('SET_NAME',payload.username);
-                commit('SET_ROLE','Admin')
-                resolve()
-               }else{
-                  reject('username or password error')
-               }
+            // mock login process
+            Login(payload.username,payload.password).then((res)=>{
+                let found=false;
+                let user=null;
+                res.forEach((item)=>{
+                    if(item.username===payload.username && item.password===payload.password){
+                        found=true;
+                        user=item;
+                    }
+                })
+                if(found){
+                    commit('SET_TOKEN',user.token);
+                    commit('SET_NAME',user.username);
+                    commit('SET_ROLE',user.role);
+                    resolve();
+                }else{
+                    reject('username or password is not match')
+                }
+              
+            }).catch((err)=>reject(err));
           })
           
        },

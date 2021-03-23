@@ -4,13 +4,22 @@
             "id":1,
             "username":"liuyi",
             "password":"111111",
-            "token":"aaaa"
+            "token":"aaaa",
+            "role":"CustomerService"
         },
         {
             "id":2,
             "username":"xiaoli",
             "password":"111111",
-            "token":"bbb"
+            "token":"bbb",
+            "role":"Marketing"
+        },
+        {
+            "id":3,
+            "username":"admin",
+            "password":"admin",
+            "token":"cccc",
+            "role":"Admin"
         }
     ]
 }
