@@ -9,6 +9,7 @@
     "json-server": "json-server __json_server_mock__/db.json --watch --port 5000"
   },
   "dependencies": {
+    "ant-design-vue": "^1.7.4",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
