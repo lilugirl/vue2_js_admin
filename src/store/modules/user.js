@@ -32,6 +32,13 @@ const user={
                }
           })
           
+       },
+       logout({commit}){
+          return new Promise((resolve)=>{
+            commit('SET_TOKEN',DEFAULT_TOKEN);
+            commit('SET_NAME',DEFAULT_NAME);  
+            resolve();  
+          })    
        }
     }
 

@@ -12,15 +12,18 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    meta:{needLogin:true},
     redirect:'/user',
     component: AdminLayout,
     children:[{
       path:'user',
       name:'User',
+      meta:{needLogin:true},
       component:User
     },{
       path:'product',
       name:'Product',
+      meta:{needLogin:true},
       component:()=>import(/* webpackChunkName: "product" */ '../views/admin/product/Index.vue')
     }]
   },

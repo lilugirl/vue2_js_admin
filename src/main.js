@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import './router/permission';
 import store from './store'
 import VueI18n from "vue-i18n";
 import I18nMessages from "./locale";
