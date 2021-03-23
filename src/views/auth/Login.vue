@@ -49,12 +49,8 @@
      
     </a-form-item>
   </a-form>
-         
-     
-        
-        </a-card>
-       
-     
+   
+        </a-card>   
       </div>
      
   </div>
@@ -64,34 +60,25 @@
 import { mapActions } from "vuex";
 import "./Login.scss";
 export default {
-  data() {
-    return {
-      username: "",
-      password: "",
-    };
-  },
-
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: "normal_login" });
   },
 
   methods: {
+    ...mapActions(["login"]),
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log("Received values of form: ", values);
           this.login(values)
             .then(() => {
               this.$message.success("login successfully");
               this.$router.push("/");
             })
-            .catch((error) =>this.$message.error(error));
+            .catch((error) => this.$message.error(error));
         }
       });
     },
-    ...mapActions(["login"])
-  
   },
 };
 </script>
